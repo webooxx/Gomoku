@@ -186,9 +186,9 @@ const oStage = new __WEBPACK_IMPORTED_MODULE_0__Stage__["a" /* default */]([800 
 
 const oGameBoard = new __WEBPACK_IMPORTED_MODULE_1__BoardComponent__["a" /* default */]([450 * 2, 450 * 2], [(800 * 2 - 450 * 2) / 2, (600 * 2 - 450 * 2) / 2]);
 const oGameRightText = new __WEBPACK_IMPORTED_MODULE_2__TextComponent__["a" /* default */]('开始游戏!', [250 * 2, 40 * 2], [(800 * 2 - 250 * 2) / 2, 15 * 2]);
-const oGameUndoText = new __WEBPACK_IMPORTED_MODULE_2__TextComponent__["a" /* default */]('悔棋', [150 * 2, 40 * 2], [(800 * 2 - 450 * 2) / 2, 540 * 2]);
 
-const oGameCancelUndoText = new __WEBPACK_IMPORTED_MODULE_2__TextComponent__["a" /* default */]('撤销悔棋', [150 * 2, 40 * 2], [800 * 2 - 600 * 2 + 150 * 2, 540 * 2]);
+const oGameUndoText = new __WEBPACK_IMPORTED_MODULE_2__TextComponent__["a" /* default */]('悔棋', [120 * 2, 35 * 2], [(800 * 2 - 450 * 2) / 2 + 450 * 2 + 50, (600 * 2 - 450 * 2) / 2]);
+const oGameCancelUndoText = new __WEBPACK_IMPORTED_MODULE_2__TextComponent__["a" /* default */]('撤销悔棋', [120 * 2, 35 * 2], [(800 * 2 - 450 * 2) / 2 + 450 * 2 + 50, (600 * 2 - 450 * 2) / 2 + 100]);
 
 oGameUndoText.registEvents = ['click'];
 oGameCancelUndoText.registEvents = ['click'];
@@ -280,7 +280,7 @@ Gomoku.getRightName = () => {
  * 后退操作
  */
 Gomoku.undo = () => {
-    if (Gomoku.setInOrder.length <= 0) {
+    if (!Gomoku.inGame || Gomoku.setInOrder.length <= 0) {
         return false;
     }
     const order = Gomoku.setInOrder.pop();
