@@ -1,6 +1,6 @@
 # Gomoku
 
-- DOM 版效果：webooxx.com/ddemo/Gomoku/index_dom.html
+- DOM 版效果：http://webooxx.com/ddemo/Gomoku/index_dom.html
 - Canvas 版本效果：http://webooxx.com/ddemo/Gomoku/index_canvas.html
 - 整合版效果，可以选择渲染模式 http://webooxx.com/ddemo/Gomoku/index.html
 
