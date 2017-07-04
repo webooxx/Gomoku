@@ -15,7 +15,6 @@ export default class TextComponent extends Component {
         this.srcPos = pos;
         this.centerPos = [];
 
-        console.log('init TextComponent');
 
         return this;
     }

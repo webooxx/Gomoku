@@ -14,10 +14,6 @@ export default class PiecesComponent extends Component {
         this.color = color;
         this.r = r;
 
-        console.log('init PiecesComponent');
-
-        // document.body.appendChild(this.$el);
-
         return this;
     }
 

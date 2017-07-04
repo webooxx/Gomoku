@@ -10,8 +10,6 @@ export default class Stage {
 
     constructor(size) {
 
-        console.log('init Stage');
-
         const oCanvas = createCanvas(size);
 
         this.size = size;

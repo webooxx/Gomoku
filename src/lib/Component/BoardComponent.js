@@ -26,7 +26,6 @@ export default class BoardComponent extends Component {
     init() {
 
 
-
         //  加载4个常驻资源
         this.whitePreviewPieces = new PiecesComponent('rgba(255,255,255,.5)', [-999, 0]);
         this.blackPreviewPieces = new PiecesComponent('rgba(0,0,0,.5)', [-999, 0]);
@@ -44,48 +43,11 @@ export default class BoardComponent extends Component {
         this.drawSelf();
     }
 
-    /**
-     *在棋盘上处理鼠标移动 ==>，显示预览落子
-     * @param evtPos  移动时的相对位置
-     * @returns {*}
-     *
-     */
-    onMouseMove(evtPos) {
-        const gridPos = this.getGridPos(evtPos);
-        if (!Gomoku.inGame || !Gomoku.checkAllowSetIn(gridPos.join('_'))) {
-            this.hidePreviewPieces();
-            return false;
-        } else {
-            let realPos = this.getRealPos(gridPos);
-            this.updatePreviewPieces(Gomoku.getRightName(), realPos);
-        }
-
-        //@todo 待优化，50ms 后立即执行一次
-        // clearTimeout(this.timeId);
-        // this.timeId = setTimeout(() => {
-        // }, 50);
-
-    }
-
-
-    /**
-     * 在棋盘上处理点击
-     * @param evtPos
-     * @returns {boolean}
-     */
-    onClick(evtPos) {
-        const gridPos = this.getGridPos(evtPos);
-        if (!Gomoku.inGame) {
-            return false;
-        }
-        Gomoku.setIn(gridPos.join('_'));
-    }
-
 
     /**
      * 绘制棋盘
      */
-    drawSelf() {
+    drawSelf(setInOrder) {
         this.clear();
 
         const $board = this;
@@ -118,7 +80,7 @@ export default class BoardComponent extends Component {
 
         const r = this.whitePieces.r;
 
-        Gomoku.setInOrder.forEach((item, i) => {
+        setInOrder && setInOrder.forEach((item, i) => {
 
             let color = item[1];
             let gridPos = item[0].split('_');
